@@ -37,3 +37,23 @@ It is used to shift the data. For example, if we want to learn about the Precisi
 
 Think of the Bias Variance Tradeoff.
 
+### Error
+#### Problems with squared error
+
+- If the target output is 1 and the actual output is $0.00000001$, then there is **almost no gradient for a logistic unit to fix up the error or change**.
+    - In other words, it is way out on the plateau where the slope is almost exactly horizontal and so it will take a very long time to change its wieghts even though it is making as big an error as it's possible to make
+- If we are tring to assing probabilities to mutally exclusive class labels, we know that the outpyut shopuld sum to 1, but we are depriving the network of this knowledge.
+    - For example if the probability output of two random variables let's say $P(A) = \frac{3}{4}$ and also $P(B) = \frac{3}{4}$ then this is just a crazy answer. We ought to tell the network that information. we shouldn't deprive it with the knwoledge that these are mutually exclusive answer
+
+#### Is there a different cost function that works better?
+
+We need to find a way of telling that $A$ and $B$ are muttually exclusive and then an appropiate cost function.
+
+**We need to force the output of the Neural Network to represent a probability distribution across discrete alternatives**.
+
+##### Softmax
+
+**What?** A soft continuous version of the maximum function.
+
+**How?** each 
+
