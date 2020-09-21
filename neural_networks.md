@@ -55,5 +55,9 @@ We need to find a way of telling that $A$ and $B$ are muttually exclusive and th
 
 **What?** A soft continuous version of the maximum function.
 
-**How?** each 
+**How?** Each hidden unit receives some total input wighted from the input or previoues hidden layers' units, $z_i$. The output, $y_i$, depend on the accumulated $z_i$ of the adjacent layers. 
+
+**Goal** Like it was said before, Softmax forces the outputs to represent a probability distribution of mutually exclusive alternatives.
+
+
 
