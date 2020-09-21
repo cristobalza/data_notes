@@ -22,3 +22,12 @@ One similarity that MLPClassifier has with other Classifiers in the Scikit-Learn
 - `activation`: The activation function for the hidden layers such as softmax or sigmoud.
 - `solver`: This parameter specifies the algorithm for weight optimization across the nodes.
 - `random_state`: The parameter allows to set a seed for reproducing the same results
+
+
+#### Can a NN be a Logistic Model?
+
+Yes, activation function must be positive. Using a Sigmoid function given by $\frac{1}{1 + e^{-x}}$
+
+
+#### What is the Bias $\Theta$?
+
