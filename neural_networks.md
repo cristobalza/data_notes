@@ -31,3 +31,9 @@ Yes, activation function must be positive. Using a Sigmoid function given by $\f
 
 #### What is the Bias $\Theta$?
 
+Think of it as a constant input.
+
+It is used to shift the data. For example, if we want to learn about the Precision of a certain model, we can use the Bias to shift the model performance to Accuracy instead. 
+
+Think of the Bias Variance Tradeoff.
+
