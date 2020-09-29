@@ -4,7 +4,7 @@
 
 So far, we have heard from different techniques such as  **cross-validation**,  **holdout**, or **bootstrap** from Statistics that are use to train our model and see how well it does for the various purposes that we want.
 
-However, sometimes it is hard to choose what Classifier, model, algorithm to use. What are the exact things we should be looking at when evaluation and selecting a model in Machine Learning.
+However, sometimes it is hard to choose what Classifier, model, algorithm to use. What are the exact thigs we should be looking at when evaluation and selecting a model in Machine Learning.
 
 ## Performance of a Model
 
@@ -41,6 +41,63 @@ Consider an example where you live in a small town and you have to protect the t
 - Reality: "dragons did not come to town tonight"
 - Predict: "dragons will not come tonight"
 - Outcome: People and animals are fine and nothing happened.
+
+In real life, people don't use dragons burning or not towns as measurements for their classifiers.**Confusion Matrices** to read better this measurements and in the field of predictive analysis. The matrix or table of 2 by 2 it used to calculated more metrics in terms of proportions
+
+Using a Confusion Matrix, accuracy is calculated by:
+
+$$ \text { Accuracy } = \frac{TP + TN}{P + N}$$
+
+In order to see the overall performance of a Confusion Matrix in a binary setting like the above example, we tend to look at Sensitivity (recognition rate) and Specificity 
+
+- Sensitivity - model's ability to predict TP of each tuple.
+- Specificity - model's ability to predict TN of each tuple.
+
+Such that,
+
+$$ \text { Sensitivity } = \frac{TP}{FN + TP} $$
+
+$$ \text { Specificity } = \frac{TN}{FP + TN}$$
+
+
+
+![specs](imgs/model_selection/data100_img.png)
+
+*Source : Wikipedia*
+
+
+### Recall and Precision vs Sensitivity and Specificity
+ 
+ A this point we have defined Sensitivity and Specificity, how about recall and precision? Are they similar or not? Let's see now.
+
+**Precision** it is the measurement of exactness. 
+
+> *How many really are positive?*
+
+>*What proportion of positive identifications was actually correct?*
+
+ $$\text { Precision }=\frac{T P}{T P+F P}$$
+
+ **Recall** it is the measurement of completeness. 
+
+ > *How many are predicted as positive?*
+
+ > *What proportion of actual positives was identified correctly?*
+
+ $$\text { Recall }=\frac{T P}{T P+F N}$$
+
+ Now, 
+
+If we define a positive example as “dragons are coming to town” we can see that Recall and Sensitivity are the same, but Precision and Specificity are different. Precision is also called recognition rate or true positive rate. From now on we will refer to sensitivity as recall.
+
+Those definitions are pretty simple, however, I found myself confused when trying to understand what does the combination of them mean about my algorithms. How do we know which combination of them to use? What scenarios or conditions? 
+
+**If it helps, you may refer to specificity as the recall of the same problem when the positive label is defined as negative, and the negative as positive.**
+
+ All the measures (precision, recall, and specificity) give us important information about how well is our classification model. **It is important to look at all of them**. For example, without looking at specificity you could create a model with great precision and recall that simply predicts everything as true, and has no real value.
+
+ 
+
 
 
 
