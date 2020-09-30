@@ -122,11 +122,48 @@ F_{\beta} &=\left(1+\beta^{2}\right) \times \frac{\text { precision } \times \te
 
 ### When to use a specific F score?
 
- A factor indicating how much more important recall is than precision. For example, if we consider recall to be twice as important as precision, we can set β to 2. The standard F-score is equivalent to setting β to one.
+A default $\beta$ value is 1.0, which is the same as the F score. A smaller $\beta$ value, such as 0.5, gives more weight to precision and less to recall, whereas a larger $\beta$ value, such as 2.0, gives less weight to precision and more weight to recall in the calculation of the score.
+
+It is a useful metric to use when both precision and recall are important but slightly more attention is needed on one or the other, such as when false negatives are more important than false positives, or the reverse.
+
+**Maximizing precision minimizes false positives and maximizing recall minimizes false negatives.**
+
+ A factor indicating how much more important recall is than precision. For example, if we consider recall to be twice as important as precision, we can set $\beta$ to 2. The standard F score is equivalent to setting $\beta$ to one.
 
  ## Cross-Validation 
 
+ Cross validation is a technique for assessing how the statistical analysis generalises to an independent data set. It is a technique for evaluating machine learning models by training several models on subsets of the available input data and evaluating them on the complementary subset of the data. Using cross-validation, there are high chances that we can detect over-fitting with ease.
 
+ There are several cross validation techniques such as :
+
+1. K-Fold Cross Validation
+2. Leave P-out Cross Validation
+3. Leave One-out Cross Validation
+4. Repeated Random Sub-sampling Method
+5. Holdout Method
+
+### K-Fold Cross-Validation
+
+First I would like to introduce you to a golden rule — “Never mix training and test data”. Your first step should always be to isolate the test data-set and use it only for final evaluation. Cross-validation will thus be performed on the training set only.
+
+- *Step 1*: The entire training data set is broken up in $k$ equal parts. The first part is kept as the hold out (testing) set and the remaining $k-1$ parts are used to train the model.
+
+- *Step 2*: The trained model is then tested on the holdout set.
+
+- *Step 3*: The Step 1 and 2 are repeated $k$ times, in each case **we keep on changing the holdout set**. Thus, every data point get an equal opportunity to be included in the test set.
+
+Usually, $k$ is number between 3 and 6. It can be extended even to higher values like 10 or 15 but it becomes extremely computationally expensive and time-consuming. An example in Python is below.
+
+```
+from sklearn.model_selection import cross_val_score
+print(cross_val_score(model, X, y, cv=6))
+```
+
+We pass the model or classifier object, the features, the labels and the parameter `cv` which indicates the $k$ for K-Fold cross-validation. The method will return a list of $k$ accuracy values for each iteration. 
+
+In general, we take the average of them and use it as a consolidated cross-validation score.
+
+Although it might be computationally expensive, cross-validation is essential for evaluating the performance of the learning model.
 
 
 
