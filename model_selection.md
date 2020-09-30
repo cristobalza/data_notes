@@ -66,7 +66,7 @@ $$ \text { Specificity } = \frac{TN}{FP + TN}$$
 *Source : Wikipedia*
 
 
-### Recall and Precision vs Sensitivity and Specificity
+## Recall and Precision vs Sensitivity and Specificity
  
  A this point we have defined Sensitivity and Specificity, how about recall and precision? Are they similar or not? Let's see now.
 
@@ -95,6 +95,40 @@ Those definitions are pretty simple, however, I found myself confused when tryin
 **If it helps, you may refer to specificity as the recall of the same problem when the positive label is defined as negative, and the negative as positive.**
 
  All the measures (precision, recall, and specificity) give us important information about how well is our classification model. **It is important to look at all of them**. For example, without looking at specificity you could create a model with great precision and recall that simply predicts everything as true, and has no real value.
+
+
+ ## F scores
+
+ The F score or F1 score is another measure of a model's accuracy on a dataset. Used in binary classification systems to classify into P and N
+
+ It's a combinatioon of Precision and Recall of the model. Thus, it is also known as the harmonic mean of Precision and Recall. In other words, this gives equal weight to Precision and Recalll
+
+ F score is built in an harmonic mean function given by 
+
+ $$ H=\frac{n}{\frac{1}{x_{1}}+\frac{1}{x_{2}}+\frac{1}{x_{3}}+\ldots+\frac{1}{x_{n}}}$$
+
+ where $n$ is the number of data points in a set. This formula us the smaller of the three Pythagorean means and tends to emphasize the impact of small outliers while minimizing the impact of large outliers. When dealing with rates, the harmonic mean is considered to be the true average compared to the arithmetic average.
+
+ We can say that the F score is a test for evaluating the performance of algorithms in information retrieval.
+
+ It's also possible to adjust the F score to give more importance to precision over recall, or vice-versa. Common adjusted F scores are the $F_{0.5}$ score, the the $F_2$# score, and the $F_1$ score.
+
+ General formula of F score is
+
+ $$\begin{aligned}
+F_{\beta} &=\left(1+\beta^{2}\right) \times \frac{\text { precision } \times \text { recall }}{\left(\beta^{2} \times \text { precision }\right)+\text { recall }} \\
+&=\frac{\left(1+\beta^{2}\right) t p}{\left.\left(1+\beta^{2}\right) t p+\beta^{2} f n+f p\right)}
+\end{aligned}$$
+
+### When to use a specific F score?
+
+ A factor indicating how much more important recall is than precision. For example, if we consider recall to be twice as important as precision, we can set β to 2. The standard F-score is equivalent to setting β to one.
+
+ ## Cross-Validation 
+
+
+
+
 
  
 
