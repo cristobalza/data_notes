@@ -154,7 +154,7 @@ First I would like to introduce you to a golden rule — “Never mix training a
 
 Usually, $k$ is number between 3 and 6. It can be extended even to higher values like 10 or 15 but it becomes extremely computationally expensive and time-consuming. An example in Python is below.
 
-```
+```python
 from sklearn.model_selection import cross_val_score
 print(cross_val_score(model, X, y, cv=6))
 ```
